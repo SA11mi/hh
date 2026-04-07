@@ -1,0 +1,443 @@
+.hero {
+  position: relative;
+  padding: 6rem 0;
+  text-align: center;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.15), transparent 50%);
+  z-index: -1;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to left, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchBox {
+  display: flex;
+  width: 100%;
+  background: var(--surface);
+  border-radius: 9999px;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 10;
+}
+
+.searchBox:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.searchWrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  margin-top: 0.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  z-index: 100;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+}
+
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.searchResultItem:hover {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.searchResultIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.searchResultText {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.searchResultName {
+  font-weight: bold;
+  color: var(--foreground);
+}
+
+.searchResultDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.noResults {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  outline: none;
+  color: var(--foreground);
+  font-family: inherit;
+}
+
+.searchBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.searchBtn:hover {
+  background: var(--primary-dark);
+}
+
+/* Stores Grid */
+.section {
+  padding: 5rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--foreground);
+}
+
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 1rem 0;
+}
+
+.marqueeWrapper::before,
+.marqueeWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marqueeWrapper::before {
+  right: 0;
+  background: linear-gradient(to left, var(--background), transparent);
+}
+.marqueeWrapper::after {
+  left: 0;
+  background: linear-gradient(to right, var(--background), transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  /* Translating positive 50% in RTL moves it right */
+  animation: scrollRight 25s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.card {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--surface);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(99, 102, 241, 0.5) 80%, rgba(99, 102, 241, 0.8) 100%);
+  animation: rotateLight 3s linear infinite;
+  z-index: 0;
+}
+
+.cardInner {
+  position: relative;
+  background: var(--surface);
+  border-radius: calc(1rem - 2px);
+  padding: 2rem;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+@keyframes rotateLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.storeIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--background);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.storeName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.storeOffer {
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Footer Animation */
+.footerLogo {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footerLogoVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .searchBox {
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  .searchBtn {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Coupons Grid */
+.couponsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.couponCard {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 3.5rem 1.5rem 1.5rem; /* extra top padding for the overlapping icon */
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.couponCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+}
+
+.couponTopCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.couponIconLarge {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.couponStoreCentered {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.couponTitleCentered {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.couponDiscountBadgeCentered {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--foreground);
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+}
+
+.actionColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.copyBtnFull {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+}
+
+.copyBtnFull:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.copyBtnFull.copied {
+  background: var(--secondary);
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+}
+
+

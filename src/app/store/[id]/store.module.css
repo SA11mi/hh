@@ -1,0 +1,139 @@
+.storeHeader {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.storeIcon {
+  width: 100px;
+  height: 100px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.storeTitle {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.storeDesc {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.couponList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.couponItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.couponItem:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.couponInfo {
+  flex: 1;
+}
+
+.couponTitle {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.discountBadge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.copyBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.3);
+}
+
+.copyBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.copyBtn.copied {
+  background: var(--secondary);
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+}
+
+/* Article Section */
+.articleSection {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: var(--surface);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.articleTitle {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+}
+
+.articleContent {
+  line-height: 2;
+  font-size: 1.1rem;
+  color: var(--foreground);
+}
+
+.articleContent p {
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .couponItem {
+    flex-direction: column;
+    text-align: center;
+  }
+  .copyBtn {
+    width: 100%;
+  }
+  .articleSection {
+    padding: 1.5rem;
+  }
+}

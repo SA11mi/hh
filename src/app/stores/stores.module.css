@@ -72,3 +72,26 @@
   opacity: 1;
   transform: translateX(-5px);
 }
+
+@media (max-width: 768px) {
+  .storesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .storesGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  .iconBox {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  .storeName {
+    font-size: 1.25rem;
+  }
+}
+

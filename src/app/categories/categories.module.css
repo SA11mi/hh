@@ -80,3 +80,30 @@
   border-radius: 999px;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .categoryCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    border-radius: 16px;
+  }
+  .catName {
+    font-size: 1.25rem;
+  }
+}
+
